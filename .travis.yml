@@ -1,10 +1,5 @@
 language: java
 
-env:
-  matrix:
-    - PROFILE=ci
-    - PROFILE=spring52-next
-    - PROFILE=hibernate-next
 jobs:
   allow_failures:
     - env: PROFILE=hibernate-next
@@ -15,4 +10,4 @@ cache:
 
 install: true
 
-script: "./mvnw clean dependency:list test -Pjava11,${PROFILE} -Dsort -B"
+script: "./mvnw -Pjava11 clean dependency:list test -Pjava11,${PROFILE} -Dsort -B"
